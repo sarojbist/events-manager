@@ -44,9 +44,9 @@ const eve = useContext(eventsContext);
             onChange={handelInputChange}
             className="option-big w-full border-b-[2px] pt-[40px] border-[#aaaaaa] text-black outline-none transition-colors duration-900 ease-in-out py-[5px] focus:border-red-500">
             <option disabled selected>Choose Your Reason</option>
-            <option value="business">Personal</option>
-            <option value="ticket">Work</option>
-            <option value="project">Family</option>
+            <option value="personal">Personal</option>
+            <option value="work">Work</option>
+            <option value="family">Family</option>
           </select>
         </div>
 
