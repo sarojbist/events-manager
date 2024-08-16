@@ -1,12 +1,22 @@
-import React,{useState} from 'react'
+import React,{useState, useContext} from 'react';
+import eventsContext from '../Context/Events/EventsContext';
 
-const AddEvent = ({gohome}) => {
+const AddEvent = ({gohome, date}) => {
   const[newEvent, setNewEvent] = useState({event: "", category: "", message: ""});
-
+const eve = useContext(eventsContext);
   function handelInputChange(e) {
     const {name, value} = e.target;
     setNewEvent({...newEvent, [name]: value});
     console.log(newEvent);
+  }
+
+  function addEvent(e) {
+    e.preventDefault();
+    const eventtoAdd = {...newEvent, date, id: eve.events.length + 1}
+    eve.setEvents([...eve.events, eventtoAdd]);
+    setNewEvent({event: "", category: "", message: ""});
+    console.log("added data successfully");
+    gohome(false)
   }
   return (
     <div className='absolute top-0 bg-white w-[100vw] flex justify-center items-center'>
@@ -58,9 +68,12 @@ const AddEvent = ({gohome}) => {
         <button 
         onClick={() => gohome(false)}
         className="py-[10px] px-[25px] bg-[#ff0043] hover:bg-[#CC0036] text-white border-none rounded-lg">Cancel Event</button>
-        <button type="submit" className="py-[10px] px-[25px] bg-[#ff0043] hover:bg-[#CC0036] text-white border-none rounded-lg">Add Event</button>
+        <button type="submit" 
+        onClick = {addEvent}
+        className="py-[10px] px-[25px] bg-[#ff0043] hover:bg-[#CC0036] text-white border-none rounded-lg">Add Event</button>
         </div>
       </form>
+      
     </div>
   )
 }
