@@ -18,7 +18,13 @@ function App() {
    <EventsState>
    <div className="flex justify-center items-start gap-[20px]">
 <div>
-  <button onClick={() => setShowAddPage(true)}>Add Event</button>
+<button
+  onClick={() => setShowAddPage(true)}
+  className="py-2 px-4 my-[20px] bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105 mt-4"
+>
+  Add Event
+</button>
+
 <Calendar onChange = {changeValue} value = {date} />
 <p>The selected date is - {date.toLocaleDateString()}</p>
 </div>

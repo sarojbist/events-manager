@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import eventsContext from '../Context/Events/EventsContext';
 import { FaEdit, FaTrashAlt } from 'react-icons/fa';
-import AddEvent from './addEvent'; 
+import AddEvent from './addEvent';
 
 const ShowEvents = () => {
     const { events, setEvents } = useContext(eventsContext);
@@ -33,19 +33,19 @@ const ShowEvents = () => {
                 />
             )}
 
-            {events && events.length > 0 ? (
-                <table className="min-w-full bg-white border border-gray-200">
-                    <thead>
-                        <tr className="bg-gray-200">
-                            <th className="px-6 py-3 border-b border-gray-300 text-left text-sm font-medium text-gray-700">Event</th>
-                            <th className="px-6 py-3 border-b border-gray-300 text-left text-sm font-medium text-gray-700">Category</th>
-                            <th className="px-6 py-3 border-b border-gray-300 text-left text-sm font-medium text-gray-700">Message</th>
-                            <th className="px-6 py-3 border-b border-gray-300 text-left text-sm font-medium text-gray-700">Date</th>
-                            <th className="px-6 py-3 border-b border-gray-300 text-left text-sm font-medium text-gray-700">Options</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {events.map((event) => (
+            <table className="min-w-full bg-white border border-gray-200">
+                <thead>
+                    <tr className="bg-gray-200">
+                        <th className="px-6 py-3 border-b border-gray-300 text-left text-sm font-medium text-gray-700">Event</th>
+                        <th className="px-6 py-3 border-b border-gray-300 text-left text-sm font-medium text-gray-700">Category</th>
+                        <th className="px-6 py-3 border-b border-gray-300 text-left text-sm font-medium text-gray-700">Message</th>
+                        <th className="px-6 py-3 border-b border-gray-300 text-left text-sm font-medium text-gray-700">Date</th>
+                        <th className="px-6 py-3 border-b border-gray-300 text-left text-sm font-medium text-gray-700">Options</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {events && events.length > 0 ? (
+                        events.map((event) => (
                             <tr key={event.id} className="hover:bg-gray-100">
                                 <td className="px-6 py-4 border-b border-gray-300 text-sm text-gray-700">{event.event}</td>
                                 <td className="px-6 py-4 border-b border-gray-300 text-sm text-gray-700">{event.category}</td>
@@ -62,12 +62,14 @@ const ShowEvents = () => {
                                     </div>
                                 </td>
                             </tr>
-                        ))}
-                    </tbody>
-                </table>
-            ) : (
-                <p className="text-gray-500">No events to display</p>
-            )}
+                        ))
+                    ) : (
+                        <tr>
+                            <td colSpan="5" className="px-6 py-4 text-center text-gray-500">No events to display</td>
+                        </tr>
+                    )}
+                </tbody>
+            </table>
         </div>
     );
 }
