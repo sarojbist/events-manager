@@ -10,8 +10,6 @@ function App() {
   const [date, setDate] = useState(new Date());
   const [showAddPage, setShowAddPage] = useState(false);
 
-
-
   function changeValue(val) {
     setDate(val);
  }
@@ -21,7 +19,7 @@ function App() {
    <div className="flex justify-center items-start gap-[20px]">
 <div>
   <button onClick={() => setShowAddPage(true)}>Add Event</button>
-<Calendar onChange = {changeValue}   value = {date} />
+<Calendar onChange = {changeValue} value = {date} />
 <p>The selected date is - {date.toLocaleDateString()}</p>
 </div>
 <div>

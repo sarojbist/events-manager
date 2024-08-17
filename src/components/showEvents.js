@@ -1,9 +1,12 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import eventsContext from '../Context/Events/EventsContext';
 import { FaEdit, FaTrashAlt } from 'react-icons/fa';
+import AddEvent from './addEvent'; 
 
 const ShowEvents = () => {
     const { events, setEvents } = useContext(eventsContext);
+    const [showAddEvent, setShowAddEvent] = useState(false);
+    const [eventToEdit, setEventToEdit] = useState(null);
 
     const handelDeleteEvent = (id) => {
         const updatedEvents = events
@@ -15,8 +18,21 @@ const ShowEvents = () => {
         setEvents(updatedEvents);
     };
 
+    const handleEditClick = (event) => {
+        setEventToEdit(event);
+        setShowAddEvent(true);
+    };
+
     return (
         <div className="overflow-x-auto">
+            {showAddEvent && (
+                <AddEvent
+                    gohome={setShowAddEvent}
+                    date={eventToEdit ? eventToEdit.date : new Date()}
+                    eventToEdit={eventToEdit}
+                />
+            )}
+
             {events && events.length > 0 ? (
                 <table className="min-w-full bg-white border border-gray-200">
                     <thead>
@@ -37,7 +53,7 @@ const ShowEvents = () => {
                                 <td className="px-6 py-4 border-b border-gray-300 text-sm text-gray-700">{new Date(event.date).toLocaleString()}</td>
                                 <td className="px-6 py-4 border-b border-gray-300 text-sm text-gray-700">
                                     <div className="flex items-center space-x-4">
-                                        <button>
+                                        <button onClick={() => handleEditClick(event)}>
                                             <FaEdit className="text-blue-500 hover:text-blue-700" />
                                         </button>
                                         <button onClick={() => handelDeleteEvent(event.id)}>
