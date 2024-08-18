@@ -87,7 +87,7 @@ const ShowEvents = () => {
                                     {event.message}
                                 </td>
                                 <td className="px-6 py-4 border-b border-gray-300 text-sm text-gray-700">
-                                    {new Date(event.date).toLocaleString()}
+                                {event.date.toLocaleDateString()}
                                 </td>
                                 <td className="px-6 py-4 border-b border-gray-300 text-sm text-gray-700">
                                     <div className="flex items-center space-x-4">
