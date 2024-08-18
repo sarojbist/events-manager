@@ -116,4 +116,3 @@ const ShowEvents = () => {
 
 export default ShowEvents;
 
-//lets add some filters so users can click on them and it will show events of the selected category only
