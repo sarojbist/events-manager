@@ -12,29 +12,28 @@ function App() {
 
   function changeValue(val) {
     setDate(val);
- }
+  }
 
   return (
-   <EventsState>
-   <div className="flex justify-center items-start gap-[20px]">
-<div>
-<button
-  onClick={() => setShowAddPage(true)}
-  className="py-2 px-4 my-[20px] bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105 mt-4"
->
-  Add Event
-</button>
-
-<Calendar onChange = {changeValue} value = {date} />
-<p>The selected date is - {date.toLocaleDateString()}</p>
-</div>
-<div>
-
-<ShowEvents />
-</div>
-   </div>
- {showAddPage && (<AddEvent gohome= {setShowAddPage} date={date}/>)}  
- </EventsState>
+    <EventsState>
+      <div className="flex flex-col lg:flex-row justify-center items-start gap-[40px] py-[20px] w-[100vw]">
+        <div>
+          <div className="mx-auto flex justify-center items-center w-full px-[16px]">
+            <Calendar onChange={changeValue} value={date} />
+          </div>
+          <p className="text-lg px-[16px]"> <button
+            onClick={() => setShowAddPage(true)}
+            className="py-2 px-4 my-[20px] bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105 mt-4"
+          >
+            Add Event
+          </button> on the date of <span className="text-pink-700"> {date.toLocaleDateString()}</span></p>
+        </div>
+        <div>
+          <ShowEvents />
+        </div>
+      </div>
+      {showAddPage && (<AddEvent gohome={setShowAddPage} date={date} />)}
+    </EventsState>
   );
 }
 

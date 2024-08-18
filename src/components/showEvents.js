@@ -32,7 +32,7 @@ const ShowEvents = () => {
         ? events
         : events.filter(event => event.category === selectedCategory);
     return (
-        <div className="overflow-x-auto">
+        <div className="overflow-x-auto w-[100vw] px-[16px]">
             {showAddEvent && (
                 <AddEvent
                     gohome={setShowAddEvent}
@@ -41,11 +41,11 @@ const ShowEvents = () => {
                 />
             )}
             {events && events.length > 0 ? (
-                <div className='flex justify-start items-center mb-4'>
+                <div className='flex justify-start items-center mb-4 gap-[10px]'>
                     {categories.map((category) => (
                         <button
                             key={category}
-                            className={`bg-pink-500 text-white py-2 px-4 rounded-md hover:bg-pink-600 mx-2 ${selectedCategory === category ? 'bg-pink-700' : ''}`}
+                            className={`bg-pink-500 text-white py-2 px-4 rounded-md hover:bg-pink-600 ${selectedCategory === category ? 'bg-pink-700' : ''}`}
                             onClick={() => handleCategoryChange(category)}
                         >
                             {category.charAt(0).toUpperCase() + category.slice(1)}

@@ -39,7 +39,7 @@ const AddEvent = ({ gohome, date, eventToEdit }) => {
 
   return (
     <div className='fixed top-0 left-0 bg-white w-full h-full flex justify-center items-center z-50'>
-      <form className='lg:w-[50%] my-[40px] mx-4' onSubmit={handleSubmit}>
+      <form className='w-[80%] lg:w-[50%] my-[40px] mx-4' onSubmit={handleSubmit}>
         <div className="flex flex-col md:flex-row justify-center items-center w-full gap-[20px] relative">
           <label
             htmlFor="eventName"
@@ -65,9 +65,9 @@ const AddEvent = ({ gohome, date, eventToEdit }) => {
             name="category"
             value={newEvent.category}
             onChange={handelInputChange}
-            className="option-big w-full border-b-[2px] pt-[40px] border-[#aaaaaa] text-black outline-none transition-colors duration-900 ease-in-out py-[5px] focus:border-red-500"
+            className="w-full border-b-[2px] pt-[40px] border-[#aaaaaa] text-black outline-none transition-colors duration-900 ease-in-out py-[5px] focus:border-red-500 bg-white"
           >
-            <option disabled value="">Choose Your Reason</option>
+            <option disabled value="">Choose Your Category</option>
             <option value="personal">Personal</option>
             <option value="work">Work</option>
             <option value="family">Family</option>
