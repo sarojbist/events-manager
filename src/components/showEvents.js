@@ -32,7 +32,7 @@ const ShowEvents = () => {
         ? events
         : events.filter(event => event.category === selectedCategory);
     return (
-        <div className="overflow-x-auto w-[100vw] px-[16px]">
+        <div className="overflow-x-auto w-[100vw] lg:w-full px-[16px] lg:px-[0]">
             {showAddEvent && (
                 <AddEvent
                     gohome={setShowAddEvent}
